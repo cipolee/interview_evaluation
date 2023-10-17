@@ -1,0 +1,14 @@
+CUDA_VISIBLE_DEVICES=7 python3 interview_eval.py \
+--type bert \
+--output_dir outputs/princeton_nlp \
+--write_dir results/pred \
+--predict_file data/predict.json \
+--qa_log bert.txt \
+--history_ground_truth True \
+--match_metric f1 \
+--add_background \
+--skip_entity \
+--pred \
+--start_i \
+--end_i \
+--do_lower_case
