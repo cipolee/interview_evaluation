@@ -3,7 +3,7 @@ This is the repository for our EMNLP'2023 paper [Interview Evaluation: A Novel A
 
 ## Quick links
 * [Overview](#Overview)
-* [Conversational Question Answering Dataset](#Conversational Question Answering Dataset)
+* [Conversational Question Answering Dataset](##conversational-question-answering-dataset)
 * [Automatic model evaluation interface](#Automatic-model-evaluation-interface)
 * [Setup](#Setup)
   * [Install dependencies](#Install-dependencies)
@@ -13,67 +13,64 @@ This is the repository for our EMNLP'2023 paper [Interview Evaluation: A Novel A
   * [GraphFlow](#GraphFlow)
   * [HAM](#HAM)
   * [ExCorD](#ExCorD)
-* [Obtain Metrics](#Obtain Metricsl)
+* [Obtain Metrics](#Obtain-Metricsl)
 * [Citation](#Citation)
 
 ## Overview
 
-In this work, we propose a novel automatic evaluation approach for CQA models, which has the following advantages: 1. Avoid labor and dataset costs. Train on the training set and then evaluate on the independent and identically distributed (IID) test set.2. Conversation history is based on the model's own predictions, and unresolved coreferences should be avoided. Cannot weaken dialogical properties, such as Auto-Rewrite Evaluation.3. Enable interactivity for automatic evaluation of CQA models.
+In this work, we propose a novel automatic evaluation approach for CQA models, which has the following advantages:
+  1. Avoid labor and dataset costs. Train on the training set and then evaluate on the independent and identically distributed (IID) test set.
+  2. Conversation history is based on the model's own predictions, and unresolved coreferences should be avoided. Cannot weaken dialogical properties, such as Auto-Rewrite Evaluation.
+  3. Enable interactivity for automatic evaluation of CQA models.
 
 ![The framework for interview evaluation](figs/framework.png)
 
 ## Conversational Question Answering Dataset
-We used two CQA datasets, namely QuAC and CoQA. 
 
-QuAC was proposed in the paper [QuAC : Question Answering in Context.](https://arxiv.org/pdf/1808.07036.pdf)
+We used two CQA datasets, namely QuAC and CoQA. QuAC was proposed in the paper [QuAC : Question Answering in Context.](https://arxiv.org/pdf/1808.07036.pdf) The json file of QuAC is structured as follows:
 
-The json file of QuAC is structured as follows:
-
-```json
+```
 {"data": 
 	[{
      "paragraphs": 
       	[
-      			{
-      			 # The passage used in this conversation.
-      			"context": "In May 1983, she married Nikos Karvelas, a composer, ...", 
+      		{
+      		# The passage used in this conversation.
+      		"context": "In May 1983, she married Nikos Karvelas, a composer, ...", 
       			
-      			 # The conversation, which contains a list of QA pairs.
-      			"qas": [
-      								{
-      									"followup": "y", 
-      									"yesno": "x", 
-      									"question": "what happened in 1983?", 
-      									
-      									# The golden answers list
-      									"answers": [
-      										{"text": "In May 1983, she married ...", "answer_start": 0}, 
-      										{"text": "In May 1983, she married Nikos Karvelas, a composer,", "answer_start": 0}, 
-      										...
-      										], 
-      									
-      									# id of question: # turn id
-      									"id": "C_5ab583f64dbb47b995cf59328ea0af43_1_q#0", 
-      									"orig_answer": {
-      											"text": "In May 1983, she married Nikos Karvelas, a composer,", 
-      											"answer_start": 0}}
-      								}
-      							...
-      							]
-      				}
-      			....
-      		]
-     }]
-  }
+      		# The conversation, which contains a list of QA pairs.
+      		"qas": [
+      		{
+            "followup": "y", 
+            "yesno": "x", 
+            "question": "what happened in 1983?", 
+            
+            # The golden answers list
+            "answers": [
+              {"text": "In May 1983, she married ...", "answer_start": 0}, 
+              {"text": "In May 1983, she married Nikos Karvelas, a composer,", "answer_start": 0}, 
+              ...
+              ], 
+            
+            # id of question: # turn id
+            "id": "C_5ab583f64dbb47b995cf59328ea0af43_1_q#0", 
+            "orig_answer": {
+                "text": "In May 1983, she married Nikos Karvelas, a composer,", 
+                "answer_start": 0}}
+          }
+        ...
+        ]
+      }
+    ....
+  ]}]
+}
 
 
 ```
 
-QuAC was proposed in the paper [CoQA: A Conversational Question Answering Challenge.](CoQA: A Conversational Question Answering Challenge)
+QuAC was proposed in the paper [CoQA: A Conversational Question Answering Challenge.](CoQA: A Conversational Question Answering Challenge) The json file of CoQA is structured as follows:
 
-The json file of CoQA is structured as follows:
-
-```json
+```
 {
 	"version": "1.0", 
 	"data": 
@@ -108,7 +105,7 @@ pip install -r requirements.txt
 
 
 
-## Evaluating existing models
+## Evaluating existing models of QuAC
 
 We provide our implementations for the four models that we used in our paper: BERT, [GraphFlow](https://www.ijcai.org/Proceedings/2020/171), [HAM](https://dl.acm.org/doi/abs/10.1145/3357384.3357905), [ExCorD](https://aclanthology.org/2021.acl-long.478/). We modified exisiting implementation online to use model predictions as conversation history. Below are the instructions to run evaluation script on each of these models. **Moreover, we upload all models in our Google Drives. You could send a share request to get the content in the link**
 
@@ -236,8 +233,10 @@ CUDA_VISIBLE_DEVICES=$ID python3 interview_eval.py \
 --start_i ${index_of_first_passage_to_eval} \
 --end_i  ${index_of_last_passage_to_eval_exclusive}
 ```
+Evaluating existing models of CoQA is similar as the above.
 
 ## Obtain Metrics
+
 ```shell
 cd post_process_eval_results
 python3 post_pocess.py
