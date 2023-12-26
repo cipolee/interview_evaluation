@@ -7,7 +7,6 @@ This is the repository for our EMNLP'2023 paper [Interview Evaluation: A Novel A
 * [Automatic model evaluation interface](#Automatic-model-evaluation-interface)
 * [Setup](#Setup)
   * [Install dependencies](#Install-dependencies)
-  * [Download the datasets](#Download-the-datasets)
 * [Evaluating existing models](#Evaluating-existing-models)
   * [BERT](#BERT)
   * [GraphFlow](#GraphFlow)
