@@ -68,7 +68,7 @@ We used two CQA datasets, namely QuAC and CoQA. QuAC was proposed in the paper [
 
 ```
 
-QuAC was proposed in the paper [CoQA: A Conversational Question Answering Challenge.](CoQA: A Conversational Question Answering Challenge) The json file of CoQA is structured as follows:
+CoQA was proposed in the paper [CoQA: A Conversational Question Answering Challenge.](CoQA: A Conversational Question Answering Challenge) The json file of CoQA is structured as follows:
 
 ```
 {
@@ -176,7 +176,7 @@ CUDA_VISIBLE_DEVICES=$ID python3 interview_eval.py \
 
 
 ### HAM
-The orgininal model checkpoint can be downloaded from [ our Google Drive](https://drive.google.com/drive/folders/1KeZjIFjeQ7bqVh2yAzr8c0xa7kb_iIww?usp=drive_link)
+The orgininal model checkpoint can be downloaded from [HAM model](https://drive.google.com/drive/folders/1KeZjIFjeQ7bqVh2yAzr8c0xa7kb_iIww?usp=drive_link)
 
 ```bash
 # Run Evaluation (Auto-Rewrite as example)
@@ -215,7 +215,7 @@ CUDA_VISIBLE_DEVICES=$ID python interview_eval.py \
 
 
 ### ExCorD
-The original model checkpoint can be downloaded from [ our Google Drive](https://drive.google.com/drive/folders/1U2sDsYayAcSjVzMz6yODwSIYgNs-P9rt?usp=drive_link)
+The original model checkpoint can be downloaded from [Excord model](https://drive.google.com/drive/folders/1U2sDsYayAcSjVzMz6yODwSIYgNs-P9rt?usp=drive_link)
 
 ```bash
 # Run Interview Evaluation (use generated history as example)
