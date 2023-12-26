@@ -1,3 +1,0 @@
-# Interview Evaluation: A Novel Approach for Automatic Evaluation of Conversational Question Answering Models
-
-* more details come soon...
